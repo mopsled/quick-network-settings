@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InterfaceTableViewController : UITableViewController
+@interface InterfacesTableViewController : UITableViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *interfaceTableView;
+
+- (void)refreshInterfaceData;
 
 - (IBAction)refreshAction:(id)sender;
 

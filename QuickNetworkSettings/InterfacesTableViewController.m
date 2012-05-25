@@ -6,22 +6,13 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "InterfaceTableViewController.h"
+#import "InterfacesTableViewController.h"
+#import "SingleInterfaceTableViewController.h"
+
 #import "NICInfo.h"
 #import "NICInfoSummary.h"
 
-@interface NSArray (AddFirstSelector)
-- (id)first;
-@end
-
-@implementation NSArray (AddFirstSelector)
-- (id)first {
-    return [self objectAtIndex:0];
-}
-@end
-
-
-@implementation InterfaceTableViewController {
+@implementation InterfacesTableViewController {
     NSArray *nicInfos;
 }
 @synthesize interfaceTableView;
@@ -38,20 +29,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self refreshInterfaceData];
 }
 
 - (void)viewDidUnload
 {
     [self setInterfaceTableView:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -86,13 +71,13 @@
     [interfaceLabel setText:nicInfo.interfaceName];
     
     if([nicInfo.nicIPInfos count] != 0) {
-        NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPInfos first];
+        NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPInfos objectAtIndex:0];
         [ipAddressLabel setText:info.ip];
     } else if([nicInfo.nicIPv6Infos count] != 0) {
-        NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPv6Infos first];
+        NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPv6Infos objectAtIndex:0];
         [ipAddressLabel setText:info.ip];
     } else {
-        [ipAddressLabel setText:@"None"];
+        [ipAddressLabel setText:@"none"];
     }
     
     return cell;
@@ -104,11 +89,28 @@
     
 }
 
-- (IBAction)refreshAction:(id)sender {
+#pragma mark - Application logic
+
+- (void)refreshInterfaceData {
     NICInfoSummary* summary = [[NICInfoSummary alloc] init];
     nicInfos = summary.nicInfos;
     
     [interfaceTableView reloadData];
+}
+
+#pragma mark - IBActions
+
+- (IBAction)refreshAction:(id)sender {
+    [self refreshInterfaceData];
+}
+
+#pragma mark - Storyboard logic
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	if ([segue.identifier isEqualToString:@"SelectInterface"]) {
+		SingleInterfaceTableViewController *interfaceViewController = segue.destinationViewController;
+        interfaceViewController.nicInfo = [nicInfos objectAtIndex:[interfaceTableView indexPathForSelectedRow].row];
+	}
 }
                                 
 @end

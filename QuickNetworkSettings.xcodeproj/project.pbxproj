@@ -16,7 +16,8 @@
 		70F949F3156F2A0A00EC67AF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70F949F1156F2A0A00EC67AF /* MainStoryboard.storyboard */; };
 		70F94A01156F33A900EC67AF /* NICInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F949FE156F33A900EC67AF /* NICInfo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		70F94A02156F33A900EC67AF /* NICInfoSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F94A00156F33A900EC67AF /* NICInfoSummary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		70F94A05156F373E00EC67AF /* InterfaceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F94A04156F373E00EC67AF /* InterfaceTableViewController.m */; };
+		70F94A05156F373E00EC67AF /* InterfacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F94A04156F373E00EC67AF /* InterfacesTableViewController.m */; };
+		70F94A0C156F40FC00EC67AF /* SingleInterfaceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F94A0B156F40FC00EC67AF /* SingleInterfaceTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +36,10 @@
 		70F949FE156F33A900EC67AF /* NICInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NICInfo.m; sourceTree = "<group>"; };
 		70F949FF156F33A900EC67AF /* NICInfoSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NICInfoSummary.h; sourceTree = "<group>"; };
 		70F94A00156F33A900EC67AF /* NICInfoSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NICInfoSummary.m; sourceTree = "<group>"; };
-		70F94A03156F373E00EC67AF /* InterfaceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceTableViewController.h; sourceTree = "<group>"; };
-		70F94A04156F373E00EC67AF /* InterfaceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceTableViewController.m; sourceTree = "<group>"; };
+		70F94A03156F373E00EC67AF /* InterfacesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfacesTableViewController.h; sourceTree = "<group>"; };
+		70F94A04156F373E00EC67AF /* InterfacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfacesTableViewController.m; sourceTree = "<group>"; };
+		70F94A0A156F40FC00EC67AF /* SingleInterfaceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleInterfaceTableViewController.h; sourceTree = "<group>"; };
+		70F94A0B156F40FC00EC67AF /* SingleInterfaceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleInterfaceTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +91,10 @@
 				70F949EF156F2A0A00EC67AF /* AppDelegate.m */,
 				70F949F1156F2A0A00EC67AF /* MainStoryboard.storyboard */,
 				70F949E6156F2A0A00EC67AF /* Supporting Files */,
-				70F94A03156F373E00EC67AF /* InterfaceTableViewController.h */,
-				70F94A04156F373E00EC67AF /* InterfaceTableViewController.m */,
+				70F94A03156F373E00EC67AF /* InterfacesTableViewController.h */,
+				70F94A04156F373E00EC67AF /* InterfacesTableViewController.m */,
+				70F94A0A156F40FC00EC67AF /* SingleInterfaceTableViewController.h */,
+				70F94A0B156F40FC00EC67AF /* SingleInterfaceTableViewController.m */,
 			);
 			path = QuickNetworkSettings;
 			sourceTree = "<group>";
@@ -182,7 +187,8 @@
 				70F949F0156F2A0A00EC67AF /* AppDelegate.m in Sources */,
 				70F94A01156F33A900EC67AF /* NICInfo.m in Sources */,
 				70F94A02156F33A900EC67AF /* NICInfoSummary.m in Sources */,
-				70F94A05156F373E00EC67AF /* InterfaceTableViewController.m in Sources */,
+				70F94A05156F373E00EC67AF /* InterfacesTableViewController.m in Sources */,
+				70F94A0C156F40FC00EC67AF /* SingleInterfaceTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
