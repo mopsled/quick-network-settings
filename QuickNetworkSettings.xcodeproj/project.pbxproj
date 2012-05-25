@@ -14,7 +14,9 @@
 		70F949EC156F2A0A00EC67AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F949EB156F2A0A00EC67AF /* main.m */; };
 		70F949F0156F2A0A00EC67AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F949EF156F2A0A00EC67AF /* AppDelegate.m */; };
 		70F949F3156F2A0A00EC67AF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70F949F1156F2A0A00EC67AF /* MainStoryboard.storyboard */; };
-		70F949F6156F2A0A00EC67AF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F949F5156F2A0A00EC67AF /* ViewController.m */; };
+		70F94A01156F33A900EC67AF /* NICInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F949FE156F33A900EC67AF /* NICInfo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		70F94A02156F33A900EC67AF /* NICInfoSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F94A00156F33A900EC67AF /* NICInfoSummary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		70F94A05156F373E00EC67AF /* InterfaceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F94A04156F373E00EC67AF /* InterfaceTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +31,12 @@
 		70F949EE156F2A0A00EC67AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		70F949EF156F2A0A00EC67AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		70F949F2156F2A0A00EC67AF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		70F949F4156F2A0A00EC67AF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		70F949F5156F2A0A00EC67AF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		70F949FD156F33A900EC67AF /* NICInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NICInfo.h; sourceTree = "<group>"; };
+		70F949FE156F33A900EC67AF /* NICInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NICInfo.m; sourceTree = "<group>"; };
+		70F949FF156F33A900EC67AF /* NICInfoSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NICInfoSummary.h; sourceTree = "<group>"; };
+		70F94A00156F33A900EC67AF /* NICInfoSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NICInfoSummary.m; sourceTree = "<group>"; };
+		70F94A03156F373E00EC67AF /* InterfaceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceTableViewController.h; sourceTree = "<group>"; };
+		70F94A04156F373E00EC67AF /* InterfaceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +56,7 @@
 		70F949D0156F2A0A00EC67AF = {
 			isa = PBXGroup;
 			children = (
+				70F949FC156F33A900EC67AF /* NICInfo */,
 				70F949E5156F2A0A00EC67AF /* QuickNetworkSettings */,
 				70F949DE156F2A0A00EC67AF /* Frameworks */,
 				70F949DC156F2A0A00EC67AF /* Products */,
@@ -80,9 +87,9 @@
 				70F949EE156F2A0A00EC67AF /* AppDelegate.h */,
 				70F949EF156F2A0A00EC67AF /* AppDelegate.m */,
 				70F949F1156F2A0A00EC67AF /* MainStoryboard.storyboard */,
-				70F949F4156F2A0A00EC67AF /* ViewController.h */,
-				70F949F5156F2A0A00EC67AF /* ViewController.m */,
 				70F949E6156F2A0A00EC67AF /* Supporting Files */,
+				70F94A03156F373E00EC67AF /* InterfaceTableViewController.h */,
+				70F94A04156F373E00EC67AF /* InterfaceTableViewController.m */,
 			);
 			path = QuickNetworkSettings;
 			sourceTree = "<group>";
@@ -96,6 +103,17 @@
 				70F949ED156F2A0A00EC67AF /* QuickNetworkSettings-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		70F949FC156F33A900EC67AF /* NICInfo */ = {
+			isa = PBXGroup;
+			children = (
+				70F949FD156F33A900EC67AF /* NICInfo.h */,
+				70F949FE156F33A900EC67AF /* NICInfo.m */,
+				70F949FF156F33A900EC67AF /* NICInfoSummary.h */,
+				70F94A00156F33A900EC67AF /* NICInfoSummary.m */,
+			);
+			path = NICInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +180,9 @@
 			files = (
 				70F949EC156F2A0A00EC67AF /* main.m in Sources */,
 				70F949F0156F2A0A00EC67AF /* AppDelegate.m in Sources */,
-				70F949F6156F2A0A00EC67AF /* ViewController.m in Sources */,
+				70F94A01156F33A900EC67AF /* NICInfo.m in Sources */,
+				70F94A02156F33A900EC67AF /* NICInfoSummary.m in Sources */,
+				70F94A05156F373E00EC67AF /* InterfaceTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
