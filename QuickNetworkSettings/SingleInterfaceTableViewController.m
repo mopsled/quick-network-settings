@@ -20,7 +20,9 @@
 @synthesize ipAddressLabel;
 @synthesize macLabel;
 @synthesize netmaskLabel;
+@synthesize externalLabel;
 @synthesize routerLabel;
+@synthesize broadcastLabel;
 @synthesize dnsLabel;
 @synthesize nicInfo;
 
@@ -41,10 +43,12 @@
         NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPInfos objectAtIndex:0];
         [ipAddressLabel setText:info.ip];
         [netmaskLabel setText:info.netmask];
+        [broadcastLabel setText:info.broadcastIP];
     } else if([nicInfo.nicIPv6Infos count] != 0) {
         NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPv6Infos objectAtIndex:0];
         [ipAddressLabel setText:info.ip];
         [netmaskLabel setText:info.netmask];
+        [broadcastLabel setText:info.broadcastIP];
     } else {
         [ipAddressLabel setText:@"none"];
         [netmaskLabel setText:@"none"];
@@ -59,6 +63,8 @@
     [self setRouterLabel:nil];
     [self setDnsLabel:nil];
     [self setMacLabel:nil];
+    [self setBroadcastLabel:nil];
+    [self setExternalLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
