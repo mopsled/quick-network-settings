@@ -22,14 +22,14 @@
 		70F949DF156F2A0A00EC67AF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		70F949E1156F2A0A00EC67AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		70F949E3156F2A0A00EC67AF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		70F949E7156F2A0A00EC67AF /* QuickNetworkSettings-Info.plist */ = {isa = PBXFileReference; path = "QuickNetworkSettings-Info.plist"; sourceTree = "<group>"; };
+		70F949E7156F2A0A00EC67AF /* QuickNetworkSettings-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuickNetworkSettings-Info.plist"; sourceTree = "<group>"; };
 		70F949E9156F2A0A00EC67AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		70F949EB156F2A0A00EC67AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		70F949ED156F2A0A00EC67AF /* QuickNetworkSettings-Prefix.pch */ = {isa = PBXFileReference; path = "QuickNetworkSettings-Prefix.pch"; sourceTree = "<group>"; };
-		70F949EE156F2A0A00EC67AF /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		70F949ED156F2A0A00EC67AF /* QuickNetworkSettings-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuickNetworkSettings-Prefix.pch"; sourceTree = "<group>"; };
+		70F949EE156F2A0A00EC67AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		70F949EF156F2A0A00EC67AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		70F949F2156F2A0A00EC67AF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		70F949F4156F2A0A00EC67AF /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		70F949F4156F2A0A00EC67AF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		70F949F5156F2A0A00EC67AF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
