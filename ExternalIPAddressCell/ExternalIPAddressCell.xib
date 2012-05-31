@@ -34,7 +34,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUITableViewCell" id="718656424">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="18068174">
@@ -46,6 +46,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{20, 11}, {101, 21}}</string>
 								<reference key="NSSuperview" ref="18068174"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="555900190"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -76,13 +77,15 @@
 							</object>
 							<object class="IBUILabel" id="555900190">
 								<reference key="NSNextResponder" ref="18068174"/>
-								<int key="NSvFlags">-2147483356</int>
+								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{129, 11}, {151, 21}}</string>
 								<reference key="NSSuperview" ref="18068174"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="403380117"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
+								<float key="IBUIAlpha">0.0</float>
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -108,22 +111,26 @@
 							<object class="IBUIActivityIndicatorView" id="562835720">
 								<reference key="NSNextResponder" ref="18068174"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{260, 14}, {20, 20}}</string>
+								<string key="NSFrame">{{260, 12}, {20, 20}}</string>
 								<reference key="NSSuperview" ref="18068174"/>
+								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<bool key="IBUIHidesWhenStopped">NO</bool>
 								<bool key="IBUIAnimating">YES</bool>
 								<int key="IBUIStyle">2</int>
 							</object>
 							<object class="IBUIButton" id="403380117">
 								<reference key="NSNextResponder" ref="18068174"/>
-								<int key="NSvFlags">-2147483356</int>
+								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{202, 3}, {78, 37}}</string>
 								<reference key="NSSuperview" ref="18068174"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="562835720"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
+								<float key="IBUIAlpha">0.0</float>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
@@ -154,6 +161,7 @@
 						</array>
 						<string key="NSFrameSize">{320, 43}</string>
 						<reference key="NSSuperview" ref="718656424"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="319840518"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -168,6 +176,8 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 44}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="18068174"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -287,20 +297,20 @@
 					<string key="className">ExternalIPAddressCell</string>
 					<string key="superclassName">UITableViewCell</string>
 					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">tryAgainButtonAction:</string>
+						<string key="NS.key.0">retryButtonAction:</string>
 						<string key="NS.object.0">id</string>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">tryAgainButtonAction:</string>
+						<string key="NS.key.0">retryButtonAction:</string>
 						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">tryAgainButtonAction:</string>
+							<string key="name">retryButtonAction:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="activityIndicator">UIActivityIndicatorView</string>
 						<string key="ipAddressLabel">UILabel</string>
-						<string key="tryAgainButton">UIButton</string>
+						<string key="retryButton">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="activityIndicator">
@@ -311,8 +321,8 @@
 							<string key="name">ipAddressLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="tryAgainButton">
-							<string key="name">tryAgainButton</string>
+						<object class="IBToOneOutletInfo" key="retryButton">
+							<string key="name">retryButton</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
 					</dictionary>

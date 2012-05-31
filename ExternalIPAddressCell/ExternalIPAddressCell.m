@@ -9,6 +9,8 @@
 #import "ExternalIPAddressCell.h"
 #import "AFHTTPClient.h"
 
+#define ANIMATION_DURATION 0.5
+
 @implementation ExternalIPAddressCell
 
 @synthesize ipAddressLabel;
@@ -32,8 +34,10 @@
 }
 
 - (void)loadIPAddress {
-    [ipAddressLabel setHidden:YES];
-    [retryButton setHidden:YES];
+    ipAddressLabel.alpha = 0.0;
+    retryButton.alpha = 0.0;
+    
+    activityIndicator.alpha = 1.0;
     [activityIndicator startAnimating];
     
     AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:IP_URL]];
@@ -52,15 +56,30 @@
 }
 
 - (void)setIPAddress:(NSString *)address {
-    [activityIndicator stopAnimating];
-    [ipAddressLabel setHidden:NO];
-    
-    [ipAddressLabel setText:address];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
+        
+        [ipAddressLabel setText:address];
+        
+        [UIView animateWithDuration:ANIMATION_DURATION 
+                         animations:^{
+                             activityIndicator.alpha = 0.0;
+                             ipAddressLabel.alpha = 1.0;
+                         }
+                         completion:^(BOOL finished) {
+                             [activityIndicator stopAnimating];
+                         }];
+    });
 }
 
 - (void)failedToGetIPAddress {
-    [activityIndicator stopAnimating];
-    [retryButton setHidden:NO];    
+    [UIView animateWithDuration:ANIMATION_DURATION 
+                     animations:^{
+                         activityIndicator.alpha = 0.0;
+                         retryButton.alpha = 1.0;
+                     }
+                     completion:^(BOOL finished) {
+                         [activityIndicator stopAnimating];
+                     }];
 }
      
  - (IBAction)retryButtonAction:(id)sender {
