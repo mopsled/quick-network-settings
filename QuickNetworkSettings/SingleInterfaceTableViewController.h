@@ -19,9 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *broadcastLabel;
 @property (weak, nonatomic) IBOutlet UILabel *netmaskLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *externalLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dnsLabel;
-
 
 @property (weak, nonatomic) NICInfo *nicInfo;
 

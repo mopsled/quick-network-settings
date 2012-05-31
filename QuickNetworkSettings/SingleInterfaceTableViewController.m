@@ -20,7 +20,6 @@
 @synthesize ipAddressLabel;
 @synthesize macLabel;
 @synthesize netmaskLabel;
-@synthesize externalLabel;
 @synthesize routerLabel;
 @synthesize broadcastLabel;
 @synthesize dnsLabel;
@@ -54,7 +53,7 @@
         [netmaskLabel setText:@"none"];
     }
     
-    [macLabel setText:[nicInfo getMacAddressWithSeparator:@"-"]];
+    [macLabel setText:[[nicInfo getMacAddressWithSeparator:@":"] lowercaseString]];
 }
 
 - (void)viewDidUnload {
@@ -64,7 +63,6 @@
     [self setDnsLabel:nil];
     [self setMacLabel:nil];
     [self setBroadcastLabel:nil];
-    [self setExternalLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7077EB401576F7C000004220 /* ExternalIPAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7077EB3F1576F7C000004220 /* ExternalIPAddressCell.m */; };
+		7077EB431576F83000004220 /* ExternalIPAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7077EB421576F83000004220 /* ExternalIPAddressCell.xib */; };
+		70CDB6AA15707A2700C7CD6A /* WifiInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB6A915707A2700C7CD6A /* WifiInfo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		70CDB6AD157098E400C7CD6A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CDB6AC157098E400C7CD6A /* SystemConfiguration.framework */; };
+		70CDB6E91570A01A00C7CD6A /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB6D51570A01A00C7CD6A /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		70CDB6EA1570A01A00C7CD6A /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB6D71570A01A00C7CD6A /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		70CDB6EB1570A01A00C7CD6A /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB6D91570A01A00C7CD6A /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		70CDB6EC1570A01A00C7CD6A /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB6DB1570A01A00C7CD6A /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		70CDB6ED1570A01A00C7CD6A /* AFJSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB6DD1570A01A00C7CD6A /* AFJSONUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		70CDB6EE1570A01A00C7CD6A /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB6DF1570A01A00C7CD6A /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		70CDB6EF1570A01A00C7CD6A /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB6E21570A01A00C7CD6A /* AFPropertyListRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		70CDB6F01570A01A00C7CD6A /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB6E41570A01A00C7CD6A /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		70CDB6F11570A01A00C7CD6A /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB6E61570A01A00C7CD6A /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		70CDB6F21570A01A00C7CD6A /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB6E81570A01A00C7CD6A /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		70F949E0156F2A0A00EC67AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F949DF156F2A0A00EC67AF /* UIKit.framework */; };
 		70F949E2156F2A0A00EC67AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F949E1156F2A0A00EC67AF /* Foundation.framework */; };
 		70F949E4156F2A0A00EC67AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F949E3156F2A0A00EC67AF /* CoreGraphics.framework */; };
@@ -21,6 +35,33 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7077EB3E1576F7C000004220 /* ExternalIPAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExternalIPAddressCell.h; path = ExternalIPAddressCell/ExternalIPAddressCell.h; sourceTree = "<group>"; };
+		7077EB3F1576F7C000004220 /* ExternalIPAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExternalIPAddressCell.m; path = ExternalIPAddressCell/ExternalIPAddressCell.m; sourceTree = "<group>"; };
+		7077EB421576F83000004220 /* ExternalIPAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExternalIPAddressCell.xib; path = ExternalIPAddressCell/ExternalIPAddressCell.xib; sourceTree = "<group>"; };
+		70CDB6A815707A2700C7CD6A /* WifiInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WifiInfo.h; path = WifiInfo/WifiInfo.h; sourceTree = SOURCE_ROOT; };
+		70CDB6A915707A2700C7CD6A /* WifiInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WifiInfo.m; path = WifiInfo/WifiInfo.m; sourceTree = SOURCE_ROOT; };
+		70CDB6AC157098E400C7CD6A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		70CDB6D41570A01A00C7CD6A /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
+		70CDB6D51570A01A00C7CD6A /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
+		70CDB6D61570A01A00C7CD6A /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		70CDB6D71570A01A00C7CD6A /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		70CDB6D81570A01A00C7CD6A /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
+		70CDB6D91570A01A00C7CD6A /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
+		70CDB6DA1570A01A00C7CD6A /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
+		70CDB6DB1570A01A00C7CD6A /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
+		70CDB6DC1570A01A00C7CD6A /* AFJSONUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONUtilities.h; sourceTree = "<group>"; };
+		70CDB6DD1570A01A00C7CD6A /* AFJSONUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONUtilities.m; sourceTree = "<group>"; };
+		70CDB6DE1570A01A00C7CD6A /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		70CDB6DF1570A01A00C7CD6A /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		70CDB6E01570A01A00C7CD6A /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		70CDB6E11570A01A00C7CD6A /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
+		70CDB6E21570A01A00C7CD6A /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
+		70CDB6E31570A01A00C7CD6A /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		70CDB6E41570A01A00C7CD6A /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		70CDB6E51570A01A00C7CD6A /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
+		70CDB6E61570A01A00C7CD6A /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
+		70CDB6E71570A01A00C7CD6A /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		70CDB6E81570A01A00C7CD6A /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		70F949DB156F2A0A00EC67AF /* QuickNetworkSettings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickNetworkSettings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70F949DF156F2A0A00EC67AF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		70F949E1156F2A0A00EC67AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -47,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70CDB6AD157098E400C7CD6A /* SystemConfiguration.framework in Frameworks */,
 				70F949E0156F2A0A00EC67AF /* UIKit.framework in Frameworks */,
 				70F949E2156F2A0A00EC67AF /* Foundation.framework in Frameworks */,
 				70F949E4156F2A0A00EC67AF /* CoreGraphics.framework in Frameworks */,
@@ -56,10 +98,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7077EB411576F7C700004220 /* ExternalIPAddressCell */ = {
+			isa = PBXGroup;
+			children = (
+				7077EB3E1576F7C000004220 /* ExternalIPAddressCell.h */,
+				7077EB3F1576F7C000004220 /* ExternalIPAddressCell.m */,
+				7077EB421576F83000004220 /* ExternalIPAddressCell.xib */,
+			);
+			name = ExternalIPAddressCell;
+			sourceTree = "<group>";
+		};
+		70CDB6CE15709DE400C7CD6A /* WifiInfo */ = {
+			isa = PBXGroup;
+			children = (
+				70CDB6A815707A2700C7CD6A /* WifiInfo.h */,
+				70CDB6A915707A2700C7CD6A /* WifiInfo.m */,
+			);
+			name = WifiInfo;
+			sourceTree = "<group>";
+		};
+		70CDB6D31570A01A00C7CD6A /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				70CDB6D41570A01A00C7CD6A /* AFHTTPClient.h */,
+				70CDB6D51570A01A00C7CD6A /* AFHTTPClient.m */,
+				70CDB6D61570A01A00C7CD6A /* AFHTTPRequestOperation.h */,
+				70CDB6D71570A01A00C7CD6A /* AFHTTPRequestOperation.m */,
+				70CDB6D81570A01A00C7CD6A /* AFImageRequestOperation.h */,
+				70CDB6D91570A01A00C7CD6A /* AFImageRequestOperation.m */,
+				70CDB6DA1570A01A00C7CD6A /* AFJSONRequestOperation.h */,
+				70CDB6DB1570A01A00C7CD6A /* AFJSONRequestOperation.m */,
+				70CDB6DC1570A01A00C7CD6A /* AFJSONUtilities.h */,
+				70CDB6DD1570A01A00C7CD6A /* AFJSONUtilities.m */,
+				70CDB6DE1570A01A00C7CD6A /* AFNetworkActivityIndicatorManager.h */,
+				70CDB6DF1570A01A00C7CD6A /* AFNetworkActivityIndicatorManager.m */,
+				70CDB6E01570A01A00C7CD6A /* AFNetworking.h */,
+				70CDB6E11570A01A00C7CD6A /* AFPropertyListRequestOperation.h */,
+				70CDB6E21570A01A00C7CD6A /* AFPropertyListRequestOperation.m */,
+				70CDB6E31570A01A00C7CD6A /* AFURLConnectionOperation.h */,
+				70CDB6E41570A01A00C7CD6A /* AFURLConnectionOperation.m */,
+				70CDB6E51570A01A00C7CD6A /* AFXMLRequestOperation.h */,
+				70CDB6E61570A01A00C7CD6A /* AFXMLRequestOperation.m */,
+				70CDB6E71570A01A00C7CD6A /* UIImageView+AFNetworking.h */,
+				70CDB6E81570A01A00C7CD6A /* UIImageView+AFNetworking.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
 		70F949D0156F2A0A00EC67AF = {
 			isa = PBXGroup;
 			children = (
+				7077EB411576F7C700004220 /* ExternalIPAddressCell */,
+				70CDB6AC157098E400C7CD6A /* SystemConfiguration.framework */,
+				70CDB6D31570A01A00C7CD6A /* AFNetworking */,
 				70F949FC156F33A900EC67AF /* NICInfo */,
+				70CDB6CE15709DE400C7CD6A /* WifiInfo */,
 				70F949E5156F2A0A00EC67AF /* QuickNetworkSettings */,
 				70F949DE156F2A0A00EC67AF /* Frameworks */,
 				70F949DC156F2A0A00EC67AF /* Products */,
@@ -173,6 +266,7 @@
 			files = (
 				70F949EA156F2A0A00EC67AF /* InfoPlist.strings in Resources */,
 				70F949F3156F2A0A00EC67AF /* MainStoryboard.storyboard in Resources */,
+				7077EB431576F83000004220 /* ExternalIPAddressCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +283,18 @@
 				70F94A02156F33A900EC67AF /* NICInfoSummary.m in Sources */,
 				70F94A05156F373E00EC67AF /* InterfacesTableViewController.m in Sources */,
 				70F94A0C156F40FC00EC67AF /* SingleInterfaceTableViewController.m in Sources */,
+				70CDB6AA15707A2700C7CD6A /* WifiInfo.m in Sources */,
+				70CDB6E91570A01A00C7CD6A /* AFHTTPClient.m in Sources */,
+				70CDB6EA1570A01A00C7CD6A /* AFHTTPRequestOperation.m in Sources */,
+				70CDB6EB1570A01A00C7CD6A /* AFImageRequestOperation.m in Sources */,
+				70CDB6EC1570A01A00C7CD6A /* AFJSONRequestOperation.m in Sources */,
+				70CDB6ED1570A01A00C7CD6A /* AFJSONUtilities.m in Sources */,
+				70CDB6EE1570A01A00C7CD6A /* AFNetworkActivityIndicatorManager.m in Sources */,
+				70CDB6EF1570A01A00C7CD6A /* AFPropertyListRequestOperation.m in Sources */,
+				70CDB6F01570A01A00C7CD6A /* AFURLConnectionOperation.m in Sources */,
+				70CDB6F11570A01A00C7CD6A /* AFXMLRequestOperation.m in Sources */,
+				70CDB6F21570A01A00C7CD6A /* UIImageView+AFNetworking.m in Sources */,
+				7077EB401576F7C000004220 /* ExternalIPAddressCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +406,7 @@
 				70F949FB156F2A0A00EC67AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

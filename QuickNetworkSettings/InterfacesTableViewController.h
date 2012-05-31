@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *interfaceTableView;
 
-- (void)refreshInterfaceData;
+- (void)refreshNetworkData;
 
 - (IBAction)refreshAction:(id)sender;
 

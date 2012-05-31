@@ -11,10 +11,15 @@
 
 #import "NICInfo.h"
 #import "NICInfoSummary.h"
+#import "WifiInfo.h"
+#import "ExternalIPAddressCell.h"
 
 @implementation InterfacesTableViewController {
-    NSArray *nicInfos;
+    NSArray *interfaces;
+    NSDictionary *wifiInfo;
+    ExternalIPAddressCell *externalIPCell;
 }
+
 @synthesize interfaceTableView;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -30,7 +35,10 @@
 {
     [super viewDidLoad];
     
-    [self refreshInterfaceData];
+    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ExternalIPAddressCell" owner:nil options:nil];
+    externalIPCell = [topLevelObjects objectAtIndex:0];
+    
+    [self refreshNetworkData];
 }
 
 - (void)viewDidUnload
@@ -47,53 +55,112 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(section == 0) {
-        return [nicInfos count];
-    } else {
-        return 0;
+    switch (section) {
+        case 0:
+            return [interfaces count];
+        case 1:
+            return 3;
+        default:
+            return 0;
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"InterfaceCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return @"Interfaces";
+        case 1:
+            return @"Wifi Information";
+        default:
+            return nil;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NICInfo *nicInfo = [nicInfos objectAtIndex:indexPath.row];
+    UITableViewCell *cell;
+    NSString *CellIdentifier;
     
-    UILabel *interfaceLabel = (UILabel *)[cell viewWithTag:100];
-    UILabel *ipAddressLabel = (UILabel *)[cell viewWithTag:101];
-    
-    [interfaceLabel setText:nicInfo.interfaceName];
-    
-    if([nicInfo.nicIPInfos count] != 0) {
-        NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPInfos objectAtIndex:0];
-        [ipAddressLabel setText:info.ip];
-    } else if([nicInfo.nicIPv6Infos count] != 0) {
-        NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPv6Infos objectAtIndex:0];
-        [ipAddressLabel setText:info.ip];
-    } else {
-        [ipAddressLabel setText:@"none"];
+    if(indexPath.section == 0) {
+        CellIdentifier = @"InterfaceCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        NICInfo *nicInfo = [interfaces objectAtIndex:indexPath.row];
+        
+        UILabel *interfaceLabel = (UILabel *)[cell viewWithTag:100];
+        UILabel *ipAddressLabel = (UILabel *)[cell viewWithTag:101];
+        
+        [interfaceLabel setText:nicInfo.interfaceName];
+        
+        if([nicInfo.nicIPInfos count] != 0) {
+            NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPInfos objectAtIndex:0];
+            [ipAddressLabel setText:info.ip];
+        } else if([nicInfo.nicIPv6Infos count] != 0) {
+            NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPv6Infos objectAtIndex:0];
+            [ipAddressLabel setText:info.ip];
+        } else {
+            [ipAddressLabel setText:@"none"];
+        }
+    } else if(indexPath.section == 1) {
+        if(indexPath.row == 0) {
+            CellIdentifier = @"SSIDCell";
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            
+            UILabel *ssidLabel = (UILabel *)[cell viewWithTag:100];
+            
+            NSString *ssid = [wifiInfo objectForKey:@"SSID"];
+            
+            if(ssid) {
+                [ssidLabel setText:ssid];
+            } else {
+                [ssidLabel setText:@"Not connected"];
+            }
+            
+        } else if(indexPath.row == 1) {
+            NSString *CellIdentifier = @"BSSIDCell";
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            
+            UILabel *bssidLabel = (UILabel *)[cell viewWithTag:100];
+            
+            NSString *bssid = [wifiInfo objectForKey:@"BSSID"];
+            
+            if(bssid) {
+                [bssidLabel setText:bssid];
+            } else {
+                [bssidLabel setText:@"Not connected"];
+            }
+            
+            
+        } else if(indexPath.row == 2) {
+            return externalIPCell;
+        }
     }
     
     return cell;
 }
 
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
-
 #pragma mark - Application logic
 
-- (void)refreshInterfaceData {
+- (void)refreshNetworkData {
     NICInfoSummary* summary = [[NICInfoSummary alloc] init];
-    nicInfos = summary.nicInfos;
+    
+    NSMutableArray *usefulInterfaces = [[NSMutableArray alloc] init];
+    
+    for (NICInfo *nicInfo in summary.nicInfos) {
+        if([nicInfo.nicIPInfos count] != 0 || [nicInfo.nicIPv6Infos count] != 0) {
+            [usefulInterfaces addObject:nicInfo];
+        }
+    }
+    
+    interfaces = usefulInterfaces;
+    
+    wifiInfo = [WifiInfo fetchSSIDInfo];
+    
+    [externalIPCell loadIPAddress];
     
     [interfaceTableView reloadData];
 }
@@ -101,7 +168,7 @@
 #pragma mark - IBActions
 
 - (IBAction)refreshAction:(id)sender {
-    [self refreshInterfaceData];
+    [self refreshNetworkData];
 }
 
 #pragma mark - Storyboard logic
@@ -109,7 +176,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	if ([segue.identifier isEqualToString:@"SelectInterface"]) {
 		SingleInterfaceTableViewController *interfaceViewController = segue.destinationViewController;
-        interfaceViewController.nicInfo = [nicInfos objectAtIndex:[interfaceTableView indexPathForSelectedRow].row];
+        interfaceViewController.nicInfo = [interfaces objectAtIndex:[interfaceTableView indexPathForSelectedRow].row];
 	}
 }
                                 
