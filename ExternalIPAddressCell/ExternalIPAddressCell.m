@@ -12,6 +12,8 @@
 @implementation ExternalIPAddressCell
 
 @synthesize ipAddressLabel;
+@synthesize activityIndicator;
+@synthesize retryButton;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -30,6 +32,10 @@
 }
 
 - (void)loadIPAddress {
+    [ipAddressLabel setHidden:YES];
+    [retryButton setHidden:YES];
+    [activityIndicator startAnimating];
+    
     AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:IP_URL]];
     
     [client getPath:@"/" 
@@ -37,7 +43,8 @@
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSString *ipAddress = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
                 NSLog(@"Got IP address %@", ipAddress);
-                [self setIPAddress:ipAddress];}
+                [self setIPAddress:ipAddress];
+            }
             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"Failed to get data");
                 [self failedToGetIPAddress];
@@ -45,11 +52,19 @@
 }
 
 - (void)setIPAddress:(NSString *)address {
+    [activityIndicator stopAnimating];
+    [ipAddressLabel setHidden:NO];
+    
     [ipAddressLabel setText:address];
 }
 
 - (void)failedToGetIPAddress {
-    [ipAddressLabel setText:@"failed"];
+    [activityIndicator stopAnimating];
+    [retryButton setHidden:NO];    
 }
+     
+ - (IBAction)retryButtonAction:(id)sender {
+     [self loadIPAddress];
+ }
 
 @end

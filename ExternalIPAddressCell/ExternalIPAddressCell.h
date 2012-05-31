@@ -13,6 +13,10 @@
 @interface ExternalIPAddressCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *ipAddressLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIButton *retryButton;
+
+- (IBAction)retryButtonAction:(id)sender;
 
 - (void)loadIPAddress;
 
