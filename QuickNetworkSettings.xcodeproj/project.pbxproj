@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7077EB401576F7C000004220 /* ExternalIPAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7077EB3F1576F7C000004220 /* ExternalIPAddressCell.m */; };
 		7077EB431576F83000004220 /* ExternalIPAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7077EB421576F83000004220 /* ExternalIPAddressCell.xib */; };
+		7077EB5115771EC900004220 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7077EB5015771EC900004220 /* CFNetwork.framework */; };
 		70CDB6AA15707A2700C7CD6A /* WifiInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB6A915707A2700C7CD6A /* WifiInfo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		70CDB6AD157098E400C7CD6A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CDB6AC157098E400C7CD6A /* SystemConfiguration.framework */; };
 		70CDB6E91570A01A00C7CD6A /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB6D51570A01A00C7CD6A /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -21,6 +22,9 @@
 		70CDB6F01570A01A00C7CD6A /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB6E41570A01A00C7CD6A /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		70CDB6F11570A01A00C7CD6A /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB6E61570A01A00C7CD6A /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		70CDB6F21570A01A00C7CD6A /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB6E81570A01A00C7CD6A /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		70E24D2A157863540036FDD6 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E24D29157863540036FDD6 /* SimplePing.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		70E24D2D157872910036FDD6 /* GatewayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E24D2C157872910036FDD6 /* GatewayCell.m */; };
+		70E24D33157873070036FDD6 /* GatewayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70E24D32157873070036FDD6 /* GatewayCell.xib */; };
 		70F949E0156F2A0A00EC67AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F949DF156F2A0A00EC67AF /* UIKit.framework */; };
 		70F949E2156F2A0A00EC67AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F949E1156F2A0A00EC67AF /* Foundation.framework */; };
 		70F949E4156F2A0A00EC67AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F949E3156F2A0A00EC67AF /* CoreGraphics.framework */; };
@@ -38,6 +42,7 @@
 		7077EB3E1576F7C000004220 /* ExternalIPAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExternalIPAddressCell.h; path = ExternalIPAddressCell/ExternalIPAddressCell.h; sourceTree = "<group>"; };
 		7077EB3F1576F7C000004220 /* ExternalIPAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExternalIPAddressCell.m; path = ExternalIPAddressCell/ExternalIPAddressCell.m; sourceTree = "<group>"; };
 		7077EB421576F83000004220 /* ExternalIPAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExternalIPAddressCell.xib; path = ExternalIPAddressCell/ExternalIPAddressCell.xib; sourceTree = "<group>"; };
+		7077EB5015771EC900004220 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		70CDB6A815707A2700C7CD6A /* WifiInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WifiInfo.h; path = WifiInfo/WifiInfo.h; sourceTree = SOURCE_ROOT; };
 		70CDB6A915707A2700C7CD6A /* WifiInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WifiInfo.m; path = WifiInfo/WifiInfo.m; sourceTree = SOURCE_ROOT; };
 		70CDB6AC157098E400C7CD6A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -62,6 +67,12 @@
 		70CDB6E61570A01A00C7CD6A /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		70CDB6E71570A01A00C7CD6A /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		70CDB6E81570A01A00C7CD6A /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		70E24D28157863540036FDD6 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
+		70E24D29157863540036FDD6 /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
+		70E24D2B157872910036FDD6 /* GatewayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GatewayCell.h; path = GatewayCell/GatewayCell.h; sourceTree = "<group>"; };
+		70E24D2C157872910036FDD6 /* GatewayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GatewayCell.m; path = GatewayCell/GatewayCell.m; sourceTree = "<group>"; };
+		70E24D32157873070036FDD6 /* GatewayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GatewayCell.xib; path = GatewayCell/GatewayCell.xib; sourceTree = "<group>"; };
+		70E4E6ED15782C1200BED46E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		70F949DB156F2A0A00EC67AF /* QuickNetworkSettings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickNetworkSettings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70F949DF156F2A0A00EC67AF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		70F949E1156F2A0A00EC67AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -88,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7077EB5115771EC900004220 /* CFNetwork.framework in Frameworks */,
 				70CDB6AD157098E400C7CD6A /* SystemConfiguration.framework in Frameworks */,
 				70F949E0156F2A0A00EC67AF /* UIKit.framework in Frameworks */,
 				70F949E2156F2A0A00EC67AF /* Foundation.framework in Frameworks */,
@@ -145,14 +157,61 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		70E24D26157859850036FDD6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70CDB6AC157098E400C7CD6A /* SystemConfiguration.framework */,
+				7077EB5015771EC900004220 /* CFNetwork.framework */,
+				70E4E6ED15782C1200BED46E /* MobileCoreServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		70E24D27157863540036FDD6 /* SimplePing */ = {
+			isa = PBXGroup;
+			children = (
+				70E24D28157863540036FDD6 /* SimplePing.h */,
+				70E24D29157863540036FDD6 /* SimplePing.m */,
+			);
+			path = SimplePing;
+			sourceTree = "<group>";
+		};
+		70E24D2E157872950036FDD6 /* GatewayCell */ = {
+			isa = PBXGroup;
+			children = (
+				70E24D2B157872910036FDD6 /* GatewayCell.h */,
+				70E24D2C157872910036FDD6 /* GatewayCell.m */,
+				70E24D32157873070036FDD6 /* GatewayCell.xib */,
+			);
+			name = GatewayCell;
+			sourceTree = "<group>";
+		};
+		70E24D2F157872A20036FDD6 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				70CDB6CE15709DE400C7CD6A /* WifiInfo */,
+				70F949FC156F33A900EC67AF /* NICInfo */,
+				70CDB6D31570A01A00C7CD6A /* AFNetworking */,
+				70E24D27157863540036FDD6 /* SimplePing */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		70E24D31157872D90036FDD6 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				70E24D2E157872950036FDD6 /* GatewayCell */,
+				7077EB411576F7C700004220 /* ExternalIPAddressCell */,
+			);
+			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
 		70F949D0156F2A0A00EC67AF = {
 			isa = PBXGroup;
 			children = (
-				7077EB411576F7C700004220 /* ExternalIPAddressCell */,
-				70CDB6AC157098E400C7CD6A /* SystemConfiguration.framework */,
-				70CDB6D31570A01A00C7CD6A /* AFNetworking */,
-				70F949FC156F33A900EC67AF /* NICInfo */,
-				70CDB6CE15709DE400C7CD6A /* WifiInfo */,
+				70E24D26157859850036FDD6 /* Frameworks */,
+				70E24D2F157872A20036FDD6 /* Libraries */,
+				70E24D31157872D90036FDD6 /* Custom Cells */,
 				70F949E5156F2A0A00EC67AF /* QuickNetworkSettings */,
 				70F949DE156F2A0A00EC67AF /* Frameworks */,
 				70F949DC156F2A0A00EC67AF /* Products */,
@@ -267,6 +326,7 @@
 				70F949EA156F2A0A00EC67AF /* InfoPlist.strings in Resources */,
 				70F949F3156F2A0A00EC67AF /* MainStoryboard.storyboard in Resources */,
 				7077EB431576F83000004220 /* ExternalIPAddressCell.xib in Resources */,
+				70E24D33157873070036FDD6 /* GatewayCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +355,8 @@
 				70CDB6F11570A01A00C7CD6A /* AFXMLRequestOperation.m in Sources */,
 				70CDB6F21570A01A00C7CD6A /* UIImageView+AFNetworking.m in Sources */,
 				7077EB401576F7C000004220 /* ExternalIPAddressCell.m in Sources */,
+				70E24D2A157863540036FDD6 /* SimplePing.m in Sources */,
+				70E24D2D157872910036FDD6 /* GatewayCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +388,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alec Geatches (995WA55MQ5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alec Geatches (995WA55MQ5)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -341,6 +404,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PROVISIONING_PROFILE = "76CC38F8-075C-4265-A32F-DB0B59D126BB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76CC38F8-075C-4265-A32F-DB0B59D126BB";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -351,7 +416,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alec Geatches (995WA55MQ5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alec Geatches (995WA55MQ5)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -360,6 +426,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "76CC38F8-075C-4265-A32F-DB0B59D126BB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76CC38F8-075C-4265-A32F-DB0B59D126BB";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

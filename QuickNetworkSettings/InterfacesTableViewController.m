@@ -12,12 +12,16 @@
 #import "NICInfo.h"
 #import "NICInfoSummary.h"
 #import "WifiInfo.h"
+
 #import "ExternalIPAddressCell.h"
+#import "GatewayCell.h"
 
 @implementation InterfacesTableViewController {
     NSArray *interfaces;
     NSDictionary *wifiInfo;
+    
     ExternalIPAddressCell *externalIPCell;
+    GatewayCell *gatewayCell;
 }
 
 @synthesize interfaceTableView;
@@ -38,6 +42,9 @@
     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ExternalIPAddressCell" owner:nil options:nil];
     externalIPCell = [topLevelObjects objectAtIndex:0];
     
+    topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"GatewayCell" owner:nil options:nil];
+    gatewayCell = [topLevelObjects objectAtIndex:0];
+    
     [self refreshNetworkData];
 }
 
@@ -55,7 +62,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -63,7 +70,9 @@
         case 0:
             return [interfaces count];
         case 1:
-            return 3;
+            return 2;
+        case 2:
+            return 2;
         default:
             return 0;
     }
@@ -75,6 +84,8 @@
             return @"Interfaces";
         case 1:
             return @"Wifi Information";
+        case 2:
+            return @"Additional Information";
         default:
             return nil;
     }
@@ -135,7 +146,11 @@
             }
             
             
-        } else if(indexPath.row == 2) {
+        }
+    } else if(indexPath.section == 2) {
+        if(indexPath.row == 0) {
+            return gatewayCell;
+        } else if(indexPath.row == 1) {
             return externalIPCell;
         }
     }
@@ -161,6 +176,7 @@
     wifiInfo = [WifiInfo fetchSSIDInfo];
     
     [externalIPCell loadIPAddress];
+    [gatewayCell loadGateway];
     
     [interfaceTableView reloadData];
 }

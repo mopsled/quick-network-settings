@@ -6,12 +6,13 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "ExternalIPAddressCell.h"
-#import "AFHTTPClient.h"
+#import "GatewayCell.h"
 
 #define ANIMATION_DURATION 0.5
 
-@implementation ExternalIPAddressCell
+@implementation GatewayCell {
+    SimplePing *simplePing;
+}
 
 @synthesize ipAddressLabel;
 @synthesize activityIndicator;
@@ -29,37 +30,21 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
-- (void)loadIPAddress {
+- (void)loadGateway {
     ipAddressLabel.alpha = 0.0;
     retryButton.alpha = 0.0;
     
     activityIndicator.alpha = 1.0;
     [activityIndicator startAnimating];
     
-    AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:IP_URL]];
-    
-    [client getPath:@"/" 
-         parameters:nil
-            success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSString *ipAddress = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
-                
-                NSError *error;
-                NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[^0-9a-f\\.:]" options:0 error:&error];
-                NSUInteger numberOfMatches = [regex numberOfMatchesInString:ipAddress options:0 range:NSMakeRange(0, [ipAddress length])];
-                
-                if(numberOfMatches > 0) {
-                    [self failedToGetIPAddress];
-                } else {
-                    [self setIPAddress:ipAddress];
-                }
-            }
-            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                [self failedToGetIPAddress];
-            }];
+    simplePing = [SimplePing simplePingWithHostName:@"google.com"];
+    [simplePing setTtl:1];
+    [simplePing setDelegate:self];
+    [simplePing start];
 }
 
 - (void)setIPAddress:(NSString *)address {
@@ -88,9 +73,46 @@
                          [activityIndicator stopAnimating];
                      }];
 }
-     
- - (IBAction)retryButtonAction:(id)sender {
-     [self loadIPAddress];
- }
+
+- (IBAction)retryButtonAction:(id)sender {
+    [self loadGateway];
+}
+
+
+- (void)simplePing:(SimplePing *)pinger didStartWithAddress:(NSData *)address {
+    [pinger sendPingWithData:nil];
+}
+
+- (void)simplePing:(SimplePing *)pinger didFailWithError:(NSError *)error {
+    [self failedToGetIPAddress];
+}
+
+// Called whenever the SimplePing object has successfully sent a ping packet. 
+- (void)simplePing:(SimplePing *)pinger didSendPacket:(NSData *)packet {
+    
+}
+
+// Called whenever the SimplePing object tries and fails to send a ping packet.
+- (void)simplePing:(SimplePing *)pinger didFailToSendPacket:(NSData *)packet error:(NSError *)error {
+     [self failedToGetIPAddress];
+}
+
+// Called whenever the SimplePing object receives an ICMP packet that looks like 
+// a response to one of our pings (that is, has a valid ICMP checksum, has 
+// an identifier that matches our identifier, and has a sequence number in 
+// the range of sequence numbers that we've sent out).
+- (void)simplePing:(SimplePing *)pinger didReceivePingResponsePacket:(NSData *)packet {
+    
+}
+
+// Called whenever the SimplePing object receives an ICMP packet that does not 
+// look like a response to one of our pings.
+- (void)simplePing:(SimplePing *)pinger didReceiveUnexpectedPacket:(NSData *)packet {
+    IPHeader *header = (IPHeader *)[packet bytes];
+    
+    NSString *ipAddress = [[NSString alloc] initWithFormat:@"%d.%d.%d.%d", header->sourceAddress[0], header->sourceAddress[1], header->sourceAddress[2], header->sourceAddress[3]];
+    
+    [self setIPAddress:ipAddress];
+}
 
 @end

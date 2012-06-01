@@ -20,9 +20,7 @@
 @synthesize ipAddressLabel;
 @synthesize macLabel;
 @synthesize netmaskLabel;
-@synthesize routerLabel;
 @synthesize broadcastLabel;
-@synthesize dnsLabel;
 @synthesize nicInfo;
 
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -59,8 +57,6 @@
 - (void)viewDidUnload {
     [self setIpAddressLabel:nil];
     [self setNetmaskLabel:nil];
-    [self setRouterLabel:nil];
-    [self setDnsLabel:nil];
     [self setMacLabel:nil];
     [self setBroadcastLabel:nil];
     [super viewDidUnload];
