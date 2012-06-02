@@ -3,6 +3,7 @@
 #include <net/if_dl.h>
 #include <netinet/in.h>
 #include <ifaddrs.h>
+#include <arpa/inet.h>
 
 // find NIC info from nic_array
 NICInfo* findNICInfo(NSString* interface_name, NSArray* nic_array);

@@ -127,8 +127,10 @@
             
             if(ssid) {
                 [ssidLabel setText:ssid];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
             } else {
                 [ssidLabel setText:@"Not connected"];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             }
             
         } else if(indexPath.row == 1) {
@@ -141,8 +143,10 @@
             
             if(bssid) {
                 [bssidLabel setText:bssid];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
             } else {
                 [bssidLabel setText:@"Not connected"];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             }
             
             
@@ -208,9 +212,21 @@
 - (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
         return NO;
+    } else if(indexPath.section == 1) {
+        if(indexPath.row == 0) {
+            return ([wifiInfo objectForKey:@"SSID"] != nil);
+        } else if(indexPath.row == 1) {
+            return ([wifiInfo objectForKey:@"BSSID"] != nil);
+        }
+    } else if(indexPath.section == 2) {
+        if(indexPath.row == 0) {
+            return [gatewayCell hasCopyableInformation];
+        } else if(indexPath.row == 1) {
+            return [externalIPCell hasCopyableInformation];
+        }
     }
     
-    return YES;
+    return NO;
 }
 
 #pragma mark - Application logic

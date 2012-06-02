@@ -26,13 +26,6 @@
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 - (void)loadIPAddress {
     ipAddressLabel.alpha = 0.0;
     retryButton.alpha = 0.0;
@@ -81,11 +74,14 @@
                          }
                          completion:^(BOOL finished) {
                              [activityIndicator stopAnimating];
+                             [self setSelectionStyle:UITableViewCellSelectionStyleBlue];
                          }];
     });
 }
 
 - (void)failedToGetIPAddress {
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
     [UIView animateWithDuration:ANIMATION_DURATION 
                      animations:^{
                          activityIndicator.alpha = 0.0;

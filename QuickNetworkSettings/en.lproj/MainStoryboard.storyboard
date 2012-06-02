@@ -104,7 +104,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="diG-vb-6ON"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="QuickNet" id="Xrg-c5-Ng4">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="GKV-0P-Lgg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="GKV-0P-Lgg">
                             <connections>
                                 <action selector="refreshAction:" destination="Ur9-f9-60o" id="tAb-9o-I2Y"/>
                             </connections>
