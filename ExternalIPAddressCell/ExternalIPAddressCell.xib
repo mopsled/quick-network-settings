@@ -181,7 +181,6 @@
 				<reference key="NSNextKeyView" ref="18068174"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-				<int key="IBUISelectionStyle">0</int>
 				<reference key="IBUIContentView" ref="18068174"/>
 			</object>
 		</array>

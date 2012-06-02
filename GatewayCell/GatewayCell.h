@@ -18,5 +18,7 @@
 - (IBAction)retryButtonAction:(id)sender;
 
 - (void)loadGateway;
+- (BOOL)hasCopyableInformation;
+- (NSString *)ipAddress;
 
 @end

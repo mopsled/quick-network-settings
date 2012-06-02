@@ -61,6 +61,13 @@
                 [self failedToGetIPAddress];
             }];
 }
+- (BOOL)hasCopyableInformation {
+    return (ipAddressLabel.alpha == 1.0);
+}
+
+- (NSString *)ipAddress {
+    return [ipAddressLabel text];
+}
 
 - (void)setIPAddress:(NSString *)address {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{

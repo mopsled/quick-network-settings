@@ -68,4 +68,37 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+
+-(void)tableView:(UITableView*)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender {
+    UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
+    
+    if(indexPath.section == 0) {
+        if(indexPath.row == 0) {
+            [pasteBoard setString:[ipAddressLabel text]];
+        } else if(indexPath.row == 1) {
+            [pasteBoard setString:[macLabel text]];
+        }
+    } else if(indexPath.section == 1) {
+        if(indexPath.row == 0) {
+            [pasteBoard setString:[broadcastLabel text]];
+        } else if(indexPath.row == 1) {
+            [pasteBoard setString:[netmaskLabel text]];
+        }
+    }
+}
+
+-(BOOL)tableView:(UITableView*)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender {
+    if(action != @selector(copy:)) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath {    return YES;
+}
+
 @end

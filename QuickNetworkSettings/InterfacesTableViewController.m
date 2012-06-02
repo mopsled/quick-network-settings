@@ -158,6 +158,61 @@
     return cell;
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if(indexPath.section == 0) {
+        return indexPath;
+    }
+    
+    return nil;
+}
+
+-(void)tableView:(UITableView*)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender {
+    UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
+    
+    if(indexPath.section == 1) {
+        if(indexPath.row == 0) {
+            [pasteBoard setString:[wifiInfo objectForKey:@"SSID"]];
+        } else if(indexPath.row == 1) {
+            [pasteBoard setString:[wifiInfo objectForKey:@"BSSID"]];
+        }
+    } else if(indexPath.section == 2) {
+        if(indexPath.row == 0) {
+            [pasteBoard setString:[gatewayCell ipAddress]];
+        } else if(indexPath.row == 1) {
+            [pasteBoard setString:[externalIPCell ipAddress]];
+        }
+    }
+}
+
+-(BOOL)tableView:(UITableView*)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender {
+    if(action != @selector(copy:)) {
+        return NO;
+    }
+    
+    if(indexPath.section == 0) {
+        return NO;
+    } else if(indexPath.section == 1) {
+        return YES;
+    } else if(indexPath.section == 2) {
+        if(indexPath.row == 0) {
+            return [gatewayCell hasCopyableInformation];
+        } else if(indexPath.row == 1) {
+            return [externalIPCell hasCopyableInformation];
+        }
+    }
+    
+    return NO;
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0) {
+        return NO;
+    }
+    
+    return YES;
+}
+
 #pragma mark - Application logic
 
 - (void)refreshNetworkData {

@@ -19,5 +19,7 @@
 - (IBAction)retryButtonAction:(id)sender;
 
 - (void)loadIPAddress;
+- (BOOL)hasCopyableInformation;
+- (NSString *)ipAddress;
 
 @end
