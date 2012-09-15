@@ -12,11 +12,15 @@
 
 @interface SingleInterfaceTableViewController : UITableViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *ipAddressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *macLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *broadcastLabel;
-@property (weak, nonatomic) IBOutlet UILabel *netmaskLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ipv4AddressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ipv4BroadcastLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ipv4NetmaskLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *ipv6AddressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ipv6BroadcastLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ipv6NetmaskLabel;
 
 @property (weak, nonatomic) NICInfo *nicInfo;
 

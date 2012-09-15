@@ -11,16 +11,15 @@
 #import "NICInfo.h"
 #import "NICInfoSummary.h"
 
-@interface SingleInterfaceTableViewController ()
-
-@end
-
 @implementation SingleInterfaceTableViewController
 
-@synthesize ipAddressLabel;
 @synthesize macLabel;
-@synthesize netmaskLabel;
-@synthesize broadcastLabel;
+@synthesize ipv4AddressLabel;
+@synthesize ipv4BroadcastLabel;
+@synthesize ipv4NetmaskLabel;
+@synthesize ipv6AddressLabel;
+@synthesize ipv6BroadcastLabel;
+@synthesize ipv6NetmaskLabel;
 @synthesize nicInfo;
 
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -38,30 +37,38 @@
 
     if([nicInfo.nicIPInfos count] != 0) {
         NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPInfos objectAtIndex:0];
-        [ipAddressLabel setText:info.ip];
-        [netmaskLabel setText:info.netmask];
-        [broadcastLabel setText:info.broadcastIP];
-    } else if([nicInfo.nicIPv6Infos count] != 0) {
-        NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPv6Infos objectAtIndex:0];
-        [ipAddressLabel setText:info.ip];
-        [netmaskLabel setText:info.netmask];
-        [broadcastLabel setText:info.broadcastIP];
+        [ipv4AddressLabel setText:info.ip];
+        [ipv4NetmaskLabel setText:info.netmask];
+        [ipv4BroadcastLabel setText:info.broadcastIP];
     } else {
-        [ipAddressLabel setText:@"none"];
-        [netmaskLabel setText:@"none"];
+        [ipv4AddressLabel setText:@"none"];
+        [ipv4NetmaskLabel setText:@"none"];
+        [ipv4BroadcastLabel setText:@"none"];
+    }
+    
+    if([nicInfo.nicIPv6Infos count] != 0) {
+        NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPv6Infos objectAtIndex:0];
+        [ipv6AddressLabel setText:info.ip];
+        [ipv6NetmaskLabel setText:info.netmask];
+        [ipv6BroadcastLabel setText:info.broadcastIP];
+    } else {
+        [ipv6AddressLabel setText:@"none"];
+        [ipv6NetmaskLabel setText:@"none"];
+        [ipv6BroadcastLabel setText:@"none"];
     }
     
     [macLabel setText:[[nicInfo macAddressWithSeparator:@":"] lowercaseString]];
 }
 
 - (void)viewDidUnload {
-    [self setIpAddressLabel:nil];
-    [self setNetmaskLabel:nil];
     [self setMacLabel:nil];
-    [self setBroadcastLabel:nil];
+    [self setIpv4AddressLabel:nil];
+    [self setIpv4BroadcastLabel:nil];
+    [self setIpv4NetmaskLabel:nil];
+    [self setIpv6AddressLabel:nil];
+    [self setIpv6BroadcastLabel:nil];
+    [self setIpv6NetmaskLabel:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -74,20 +81,21 @@
 
 -(void)tableView:(UITableView*)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender {
     UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
+    NSString *copyText = @"";
     
     if(indexPath.section == 0) {
-        if(indexPath.row == 0) {
-            [pasteBoard setString:[ipAddressLabel text]];
-        } else if(indexPath.row == 1) {
-            [pasteBoard setString:[macLabel text]];
-        }
+        copyText = [macLabel text];
     } else if(indexPath.section == 1) {
-        if(indexPath.row == 0) {
-            [pasteBoard setString:[broadcastLabel text]];
-        } else if(indexPath.row == 1) {
-            [pasteBoard setString:[netmaskLabel text]];
-        }
+        NSArray *ipv4Labels = [NSArray arrayWithObjects:ipv4AddressLabel, ipv4BroadcastLabel, ipv4NetmaskLabel, nil];
+        
+        copyText = [(UILabel *)[ipv4Labels objectAtIndex:indexPath.row] text];
+    } else if(indexPath.section) {
+        NSArray *ipv6Labels = [NSArray arrayWithObjects:ipv6AddressLabel, ipv6BroadcastLabel, ipv6NetmaskLabel, nil];
+        
+        copyText = [(UILabel *)[ipv6Labels objectAtIndex:indexPath.row] text];
     }
+    
+    [pasteBoard setString:copyText];
 }
 
 -(BOOL)tableView:(UITableView*)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender {
