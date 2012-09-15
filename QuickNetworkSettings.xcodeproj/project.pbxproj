@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		701F1B67160514A900776202 /* QuickNet.png in Resources */ = {isa = PBXBuildFile; fileRef = 701F1B66160514A900776202 /* QuickNet.png */; };
-		701F1B6A160514AC00776202 /* QuickNet@2.png in Resources */ = {isa = PBXBuildFile; fileRef = 701F1B69160514AC00776202 /* QuickNet@2.png */; };
 		701F1B6C160515B100776202 /* QuickNet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 701F1B6B160515B100776202 /* QuickNet@2x.png */; };
 		7077EB401576F7C000004220 /* ExternalIPAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7077EB3F1576F7C000004220 /* ExternalIPAddressCell.m */; };
 		7077EB431576F83000004220 /* ExternalIPAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7077EB421576F83000004220 /* ExternalIPAddressCell.xib */; };
@@ -43,7 +42,6 @@
 
 /* Begin PBXFileReference section */
 		701F1B66160514A900776202 /* QuickNet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QuickNet.png; sourceTree = "<group>"; };
-		701F1B69160514AC00776202 /* QuickNet@2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QuickNet@2.png"; sourceTree = "<group>"; };
 		701F1B6B160515B100776202 /* QuickNet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QuickNet@2x.png"; sourceTree = "<group>"; };
 		7077EB3E1576F7C000004220 /* ExternalIPAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExternalIPAddressCell.h; path = ExternalIPAddressCell/ExternalIPAddressCell.h; sourceTree = "<group>"; };
 		7077EB3F1576F7C000004220 /* ExternalIPAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExternalIPAddressCell.m; path = ExternalIPAddressCell/ExternalIPAddressCell.m; sourceTree = "<group>"; };
@@ -206,7 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				701F1B6B160515B100776202 /* QuickNet@2x.png */,
-				701F1B69160514AC00776202 /* QuickNet@2.png */,
 				701F1B66160514A900776202 /* QuickNet.png */,
 				70F949DE156F2A0A00EC67AF /* Frameworks */,
 				70E24D2F157872A20036FDD6 /* Libraries */,
@@ -329,7 +326,6 @@
 				7077EB431576F83000004220 /* ExternalIPAddressCell.xib in Resources */,
 				70E24D33157873070036FDD6 /* GatewayCell.xib in Resources */,
 				701F1B67160514A900776202 /* QuickNet.png in Resources */,
-				701F1B6A160514AC00776202 /* QuickNet@2.png in Resources */,
 				701F1B6C160515B100776202 /* QuickNet@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
