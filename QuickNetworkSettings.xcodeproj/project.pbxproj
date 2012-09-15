@@ -157,16 +157,6 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
-		70E24D26157859850036FDD6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				70CDB6AC157098E400C7CD6A /* SystemConfiguration.framework */,
-				7077EB5015771EC900004220 /* CFNetwork.framework */,
-				70E4E6ED15782C1200BED46E /* MobileCoreServices.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		70E24D27157863540036FDD6 /* SimplePing */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,11 +199,10 @@
 		70F949D0156F2A0A00EC67AF = {
 			isa = PBXGroup;
 			children = (
-				70E24D26157859850036FDD6 /* Frameworks */,
+				70F949DE156F2A0A00EC67AF /* Frameworks */,
 				70E24D2F157872A20036FDD6 /* Libraries */,
 				70E24D31157872D90036FDD6 /* Custom Cells */,
 				70F949E5156F2A0A00EC67AF /* QuickNetworkSettings */,
-				70F949DE156F2A0A00EC67AF /* Frameworks */,
 				70F949DC156F2A0A00EC67AF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -229,6 +218,9 @@
 		70F949DE156F2A0A00EC67AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				70CDB6AC157098E400C7CD6A /* SystemConfiguration.framework */,
+				7077EB5015771EC900004220 /* CFNetwork.framework */,
+				70E4E6ED15782C1200BED46E /* MobileCoreServices.framework */,
 				70F949DF156F2A0A00EC67AF /* UIKit.framework */,
 				70F949E1156F2A0A00EC67AF /* Foundation.framework */,
 				70F949E3156F2A0A00EC67AF /* CoreGraphics.framework */,
@@ -388,8 +380,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alec Geatches (995WA55MQ5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alec Geatches (995WA55MQ5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -404,8 +396,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PROVISIONING_PROFILE = "76CC38F8-075C-4265-A32F-DB0B59D126BB";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76CC38F8-075C-4265-A32F-DB0B59D126BB";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -416,8 +408,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alec Geatches (995WA55MQ5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alec Geatches (995WA55MQ5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -426,8 +418,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "76CC38F8-075C-4265-A32F-DB0B59D126BB";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76CC38F8-075C-4265-A32F-DB0B59D126BB";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

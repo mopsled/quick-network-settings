@@ -106,16 +106,7 @@
         UILabel *ipAddressLabel = (UILabel *)[cell viewWithTag:101];
         
         [interfaceLabel setText:nicInfo.interfaceName];
-        
-        if([nicInfo.nicIPInfos count] != 0) {
-            NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPInfos objectAtIndex:0];
-            [ipAddressLabel setText:info.ip];
-        } else if([nicInfo.nicIPv6Infos count] != 0) {
-            NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPv6Infos objectAtIndex:0];
-            [ipAddressLabel setText:info.ip];
-        } else {
-            [ipAddressLabel setText:@"none"];
-        }
+        [ipAddressLabel setText:[nicInfo bestAddress]];
     } else if(indexPath.section == 1) {
         if(indexPath.row == 0) {
             CellIdentifier = @"SSIDCell";
@@ -174,17 +165,26 @@
 -(void)tableView:(UITableView*)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender {
     UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
     
-    if(indexPath.section == 1) {
-        if(indexPath.row == 0) {
-            [pasteBoard setString:[wifiInfo objectForKey:@"SSID"]];
-        } else if(indexPath.row == 1) {
-            [pasteBoard setString:[wifiInfo objectForKey:@"BSSID"]];
+    if(indexPath.section == 0) {
+        NICInfo *interface = [interfaces objectAtIndex:indexPath.row];
+        [pasteBoard setString:[interface bestAddress]];
+    } else if(indexPath.section == 1) {
+        switch (indexPath.row) {
+            case 0:
+                [pasteBoard setString:[wifiInfo objectForKey:@"SSID"]];
+                break;
+            case 1:
+                [pasteBoard setString:[wifiInfo objectForKey:@"BSSID"]];
+                break;
         }
     } else if(indexPath.section == 2) {
-        if(indexPath.row == 0) {
-            [pasteBoard setString:[gatewayCell ipAddress]];
-        } else if(indexPath.row == 1) {
-            [pasteBoard setString:[externalIPCell ipAddress]];
+        switch (indexPath.row) {
+            case 0:
+                [pasteBoard setString:[gatewayCell ipAddress]];
+                break;
+            case 1:
+                [pasteBoard setString:[externalIPCell ipAddress]];
+                break;
         }
     }
 }
@@ -194,9 +194,7 @@
         return NO;
     }
     
-    if(indexPath.section == 0) {
-        return NO;
-    } else if(indexPath.section == 1) {
+    if(indexPath.section == 0 || indexPath.section == 1) {
         return YES;
     } else if(indexPath.section == 2) {
         if(indexPath.row == 0) {
@@ -211,7 +209,7 @@
 
 - (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
-        return NO;
+        return YES;
     } else if(indexPath.section == 1) {
         if(indexPath.row == 0) {
             return ([wifiInfo objectForKey:@"SSID"] != nil);

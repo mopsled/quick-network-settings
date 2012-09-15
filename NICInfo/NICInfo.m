@@ -46,7 +46,7 @@ NICInfo* findNICInfo(NSString* interface_name, NSArray* nic_array)
     [super dealloc];
 }
 
-- (NSString*)getMacAddressWithSeparator:(NSString*)separator
+- (NSString*)macAddressWithSeparator:(NSString*)separator
 {
     return [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@"
             , [macAddress substringWithRange:NSMakeRange(0, 2)], separator
@@ -55,6 +55,20 @@ NICInfo* findNICInfo(NSString* interface_name, NSArray* nic_array)
             , [macAddress substringWithRange:NSMakeRange(6, 2)], separator
             , [macAddress substringWithRange:NSMakeRange(8, 2)], separator
             , [macAddress substringWithRange:NSMakeRange(10, 2)]];
+}
+
+- (NSString *)bestAddress {
+    NSString *bestAddress = @"none";
+    
+    if([nicIPInfos count] != 0) {
+        NICIPInfo *info = (NICIPInfo *)[nicIPInfos objectAtIndex:0];
+        bestAddress = info.ip;
+    } else if([nicIPv6Infos count] != 0) {
+        NICIPInfo *info = (NICIPInfo *)[nicIPv6Infos objectAtIndex:0];
+        bestAddress = info.ip;
+    }
+    
+    return bestAddress;
 }
 
 

@@ -51,7 +51,7 @@
         [netmaskLabel setText:@"none"];
     }
     
-    [macLabel setText:[[nicInfo getMacAddressWithSeparator:@":"] lowercaseString]];
+    [macLabel setText:[[nicInfo macAddressWithSeparator:@":"] lowercaseString]];
 }
 
 - (void)viewDidUnload {
@@ -98,7 +98,8 @@
     return YES;
 }
 
-- (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath {    return YES;
+- (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
 }
 
 @end

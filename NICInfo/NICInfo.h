@@ -28,8 +28,9 @@
 @property (retain)      NSMutableArray* nicIPv6Infos;
 
 
-// If 'FF-FF-FF-FF-FF-FF' format MAC address is needed, use this method
-- (NSString*)getMacAddressWithSeparator:(NSString*)separator;
+// If non-'FF:FF:FF:FF:FF:FF' format MAC address is needed, use this method
+- (NSString *)macAddressWithSeparator:(NSString*)separator;
+- (NSString *)bestAddress;
 
 + (NSArray*)nicInfos;
 
