@@ -18,8 +18,6 @@
 @synthesize ipv4BroadcastLabel;
 @synthesize ipv4NetmaskLabel;
 @synthesize ipv6AddressLabel;
-@synthesize ipv6BroadcastLabel;
-@synthesize ipv6NetmaskLabel;
 @synthesize nicInfo;
 
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -49,12 +47,8 @@
     if([nicInfo.nicIPv6Infos count] != 0) {
         NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPv6Infos objectAtIndex:0];
         [ipv6AddressLabel setText:info.ip];
-        [ipv6NetmaskLabel setText:info.netmask];
-        [ipv6BroadcastLabel setText:info.broadcastIP];
     } else {
         [ipv6AddressLabel setText:@"none"];
-        [ipv6NetmaskLabel setText:@"none"];
-        [ipv6BroadcastLabel setText:@"none"];
     }
     
     [macLabel setText:[[nicInfo macAddressWithSeparator:@":"] lowercaseString]];
@@ -66,8 +60,6 @@
     [self setIpv4BroadcastLabel:nil];
     [self setIpv4NetmaskLabel:nil];
     [self setIpv6AddressLabel:nil];
-    [self setIpv6BroadcastLabel:nil];
-    [self setIpv6NetmaskLabel:nil];
     [super viewDidUnload];
 }
 
@@ -90,9 +82,7 @@
         
         copyText = [(UILabel *)[ipv4Labels objectAtIndex:indexPath.row] text];
     } else if(indexPath.section) {
-        NSArray *ipv6Labels = [NSArray arrayWithObjects:ipv6AddressLabel, ipv6BroadcastLabel, ipv6NetmaskLabel, nil];
-        
-        copyText = [(UILabel *)[ipv6Labels objectAtIndex:indexPath.row] text];
+        copyText = [ipv6AddressLabel text];
     }
     
     [pasteBoard setString:copyText];

@@ -19,8 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *ipv4NetmaskLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *ipv6AddressLabel;
-@property (weak, nonatomic) IBOutlet UILabel *ipv6BroadcastLabel;
-@property (weak, nonatomic) IBOutlet UILabel *ipv6NetmaskLabel;
 
 @property (weak, nonatomic) NICInfo *nicInfo;
 
