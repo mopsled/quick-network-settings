@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		701EC76D160A421100368E62 /* IpUrls.plist in Resources */ = {isa = PBXBuildFile; fileRef = 701EC76C160A421100368E62 /* IpUrls.plist */; };
+		701EC787160A49C900368E62 /* NSArray+Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 701EC783160A49C900368E62 /* NSArray+Map.m */; };
 		701F1B67160514A900776202 /* QuickNet.png in Resources */ = {isa = PBXBuildFile; fileRef = 701F1B66160514A900776202 /* QuickNet.png */; };
 		701F1B6C160515B100776202 /* QuickNet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 701F1B6B160515B100776202 /* QuickNet@2x.png */; };
 		7077EB401576F7C000004220 /* ExternalIPAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7077EB3F1576F7C000004220 /* ExternalIPAddressCell.m */; };
@@ -41,6 +43,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		701EC76C160A421100368E62 /* IpUrls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = IpUrls.plist; path = ExternalIPAddressCell/IpUrls.plist; sourceTree = "<group>"; };
+		701EC782160A49C900368E62 /* NSArray+Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Map.h"; sourceTree = "<group>"; };
+		701EC783160A49C900368E62 /* NSArray+Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Map.m"; sourceTree = "<group>"; };
 		701F1B66160514A900776202 /* QuickNet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QuickNet.png; sourceTree = "<group>"; };
 		701F1B6B160515B100776202 /* QuickNet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QuickNet@2x.png"; sourceTree = "<group>"; };
 		7077EB3E1576F7C000004220 /* ExternalIPAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExternalIPAddressCell.h; path = ExternalIPAddressCell/ExternalIPAddressCell.h; sourceTree = "<group>"; };
@@ -114,12 +119,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		701EC77F160A49C900368E62 /* mopsled-categories */ = {
+			isa = PBXGroup;
+			children = (
+				701EC781160A49C900368E62 /* NSArray */,
+			);
+			path = "mopsled-categories";
+			sourceTree = "<group>";
+		};
+		701EC781160A49C900368E62 /* NSArray */ = {
+			isa = PBXGroup;
+			children = (
+				701EC782160A49C900368E62 /* NSArray+Map.h */,
+				701EC783160A49C900368E62 /* NSArray+Map.m */,
+			);
+			path = NSArray;
+			sourceTree = "<group>";
+		};
 		7077EB411576F7C700004220 /* ExternalIPAddressCell */ = {
 			isa = PBXGroup;
 			children = (
 				7077EB3E1576F7C000004220 /* ExternalIPAddressCell.h */,
 				7077EB3F1576F7C000004220 /* ExternalIPAddressCell.m */,
 				7077EB421576F83000004220 /* ExternalIPAddressCell.xib */,
+				701EC76C160A421100368E62 /* IpUrls.plist */,
 			);
 			name = ExternalIPAddressCell;
 			sourceTree = "<group>";
@@ -183,6 +206,7 @@
 		70E24D2F157872A20036FDD6 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				701EC77F160A49C900368E62 /* mopsled-categories */,
 				70CDB6CE15709DE400C7CD6A /* WifiInfo */,
 				70F949FC156F33A900EC67AF /* NICInfo */,
 				70CDB6D31570A01A00C7CD6A /* AFNetworking */,
@@ -327,6 +351,7 @@
 				70E24D33157873070036FDD6 /* GatewayCell.xib in Resources */,
 				701F1B67160514A900776202 /* QuickNet.png in Resources */,
 				701F1B6C160515B100776202 /* QuickNet@2x.png in Resources */,
+				701EC76D160A421100368E62 /* IpUrls.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +382,7 @@
 				7077EB401576F7C000004220 /* ExternalIPAddressCell.m in Sources */,
 				70E24D2A157863540036FDD6 /* SimplePing.m in Sources */,
 				70E24D2D157872910036FDD6 /* GatewayCell.m in Sources */,
+				701EC787160A49C900368E62 /* NSArray+Map.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

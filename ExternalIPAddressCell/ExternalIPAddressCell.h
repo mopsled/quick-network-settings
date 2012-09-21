@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#define IP_URL @"http://whatismyip.akamai.com"
-
 @interface ExternalIPAddressCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *ipAddressLabel;

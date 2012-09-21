@@ -7,7 +7,8 @@
 //
 
 #import "ExternalIPAddressCell.h"
-#import "AFHTTPClient.h"
+#import "AFHTTPRequestOperation.h"
+#import "NSArray+Map.h"
 
 #define ANIMATION_DURATION 0.5
 
@@ -33,27 +34,58 @@
     activityIndicator.alpha = 1.0;
     [activityIndicator startAnimating];
     
-    AFHTTPClient *client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:IP_URL]];
+    NSArray *ipUrlStrings = [self getExternalIpUrls];
+    __block AFHTTPRequestOperation *previousOperation = nil;
+    NSArray *ipRequestOperations = [ipUrlStrings mapObjectsUsingBlock:^id(NSString *urlString, NSUInteger idx) {
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+        AFHTTPRequestOperation *httpOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        
+        if (previousOperation) {
+            [httpOperation addDependency:previousOperation];
+        }
+        
+        previousOperation = httpOperation;
+        return httpOperation;
+    }];
     
-    [client getPath:@"/" 
-         parameters:nil
-            success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSString *ipAddress = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
-                
-                NSError *error;
-                NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[^0-9a-f\\.:]" options:0 error:&error];
-                NSUInteger numberOfMatches = [regex numberOfMatchesInString:ipAddress options:0 range:NSMakeRange(0, [ipAddress length])];
-                
-                if(numberOfMatches > 0) {
-                    [self failedToGetIPAddress];
-                } else {
-                    [self setIPAddress:ipAddress];
+    void (^success)(AFHTTPRequestOperation*, id) = ^(AFHTTPRequestOperation *thisOperation, id responseObject) {
+        NSString *response = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
+        
+        NSError *error;
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"([0-9a-f]+[:.])+[0-9a-f]+" options:0 error:&error];
+        NSTextCheckingResult *match = [regex firstMatchInString:response options:0 range:NSMakeRange(0, [response length])];
+        
+        if(match) {
+            NSRange matchRange = [match range];
+            NSString *ipAddress = [response substringWithRange:matchRange];
+            [self setIPAddress:ipAddress];
+            
+            for (AFHTTPRequestOperation *operation in ipRequestOperations) {
+                if (operation != thisOperation) {
+                    [operation cancel];
                 }
             }
-            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                [self failedToGetIPAddress];
-            }];
+        }
+    };
+    
+    void (^failure)(AFHTTPRequestOperation *, NSError *) = ^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self failedToGetIPAddress];
+    };
+    
+    for (AFHTTPRequestOperation *operation in ipRequestOperations) {
+        [operation setCompletionBlockWithSuccess:success failure:nil];
+    }
+    AFHTTPRequestOperation *lastRequest = [ipRequestOperations lastObject];
+    [lastRequest setCompletionBlockWithSuccess:success failure:failure];
+    
+    [[NSOperationQueue mainQueue] addOperations:ipRequestOperations waitUntilFinished:NO];
 }
+
+- (NSArray *)getExternalIpUrls {
+    NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"IpUrls" ofType:@"plist"];
+    return [NSArray arrayWithContentsOfFile:plistPath];
+}
+
 - (BOOL)hasCopyableInformation {
     return (ipAddressLabel.alpha == 1.0);
 }
