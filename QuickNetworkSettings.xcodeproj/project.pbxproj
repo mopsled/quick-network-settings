@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70064697160C2C0800AEDA2E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70064696160C2C0800AEDA2E /* Default-568h@2x.png */; };
+		70064699160D150200AEDA2E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 70064698160D150200AEDA2E /* Default.png */; };
+		7006469B160D150500AEDA2E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7006469A160D150500AEDA2E /* Default@2x.png */; };
 		701EC76D160A421100368E62 /* IpUrls.plist in Resources */ = {isa = PBXBuildFile; fileRef = 701EC76C160A421100368E62 /* IpUrls.plist */; };
 		701EC787160A49C900368E62 /* NSArray+Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 701EC783160A49C900368E62 /* NSArray+Map.m */; };
 		701F1B67160514A900776202 /* QuickNet.png in Resources */ = {isa = PBXBuildFile; fileRef = 701F1B66160514A900776202 /* QuickNet.png */; };
@@ -43,6 +46,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70064696160C2C0800AEDA2E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		70064698160D150200AEDA2E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		7006469A160D150500AEDA2E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		701EC76C160A421100368E62 /* IpUrls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = IpUrls.plist; path = ExternalIPAddressCell/IpUrls.plist; sourceTree = "<group>"; };
 		701EC782160A49C900368E62 /* NSArray+Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Map.h"; sourceTree = "<group>"; };
 		701EC783160A49C900368E62 /* NSArray+Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Map.m"; sourceTree = "<group>"; };
@@ -227,6 +233,9 @@
 		70F949D0156F2A0A00EC67AF = {
 			isa = PBXGroup;
 			children = (
+				7006469A160D150500AEDA2E /* Default@2x.png */,
+				70064698160D150200AEDA2E /* Default.png */,
+				70064696160C2C0800AEDA2E /* Default-568h@2x.png */,
 				701F1B6B160515B100776202 /* QuickNet@2x.png */,
 				701F1B66160514A900776202 /* QuickNet.png */,
 				70F949DE156F2A0A00EC67AF /* Frameworks */,
@@ -352,6 +361,9 @@
 				701F1B67160514A900776202 /* QuickNet.png in Resources */,
 				701F1B6C160515B100776202 /* QuickNet@2x.png in Resources */,
 				701EC76D160A421100368E62 /* IpUrls.plist in Resources */,
+				70064697160C2C0800AEDA2E /* Default-568h@2x.png in Resources */,
+				70064699160D150200AEDA2E /* Default.png in Resources */,
+				7006469B160D150500AEDA2E /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +478,7 @@
 				GCC_PREFIX_HEADER = "QuickNetworkSettings/QuickNetworkSettings-Prefix.pch";
 				INFOPLIST_FILE = "QuickNetworkSettings/QuickNetworkSettings-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -477,6 +490,7 @@
 				GCC_PREFIX_HEADER = "QuickNetworkSettings/QuickNetworkSettings-Prefix.pch";
 				INFOPLIST_FILE = "QuickNetworkSettings/QuickNetworkSettings-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

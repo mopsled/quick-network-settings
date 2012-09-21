@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="X5m-NF-DQg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="X5m-NF-DQg">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Interfaces Table View Controller - QuickNet-->
         <scene sceneID="cxX-Dg-UwN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jyy-b3-A1q" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Ur9-f9-60o" customClass="InterfacesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="wQ6-eR-3mt">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -113,16 +112,16 @@
                         <outlet property="interfaceTableView" destination="wQ6-eR-3mt" id="5mh-SG-t1i"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jyy-b3-A1q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="576" y="82"/>
         </scene>
         <!--Single Interface Table View Controller-->
         <scene sceneID="i8z-48-sfe">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5u-u3-CLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="oPm-ng-SrX" customClass="SingleInterfaceTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="hv7-y1-uhW">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -278,18 +277,19 @@
                         <outlet property="macLabel" destination="Qrt-VF-XDz" id="Rvs-P6-wW0"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5u-u3-CLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1088" y="82"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YaG-F1-SCL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XW6-Iw-MK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="X5m-NF-DQg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="S8w-CT-f9e">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.25010614809782605" green="0.25010614809782605" blue="0.25010614809782605" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nrY-U3-NNg">
@@ -300,6 +300,7 @@
                         <segue destination="Ur9-f9-60o" kind="relationship" relationship="rootViewController" id="oKR-Pt-1to"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XW6-Iw-MK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="50" y="82"/>
         </scene>
@@ -319,8 +320,6 @@
                 <relationship kind="outlet" name="ipv4BroadcastLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="ipv4NetmaskLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="ipv6AddressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ipv6BroadcastLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ipv6NetmaskLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="macLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
@@ -328,6 +327,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>
