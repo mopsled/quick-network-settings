@@ -66,31 +66,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    int sections = 0;
-    
-    switch (section) {
-        case 0:
-            sections = [interfaces count];
-        case 1:
-            sections = 2;
-        case 2:
-            sections = 2;
-    }
-    return sections;
+    int sectionCounts[] = {[interfaces count], 2, 2};
+    return sectionCounts[section];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSString *title = @"";
-    
-    switch (section) {
-        case 0:
-            title = @"Interfaces";
-        case 1:
-            title = @"Wifi Information";
-        case 2:
-            title = @"Additional Information";
-    }
-    return title;
+    NSArray *sectionHeaders = [NSArray arrayWithObjects:@"Interfaces", @"Wifi Information", @"Additional Information", nil];
+    return [sectionHeaders objectAtIndex:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
