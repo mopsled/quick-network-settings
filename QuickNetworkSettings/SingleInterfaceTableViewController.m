@@ -11,6 +11,8 @@
 #import "NICInfo.h"
 #import "NICInfoSummary.h"
 
+#define NO_INFORMATON_STRING @"none"
+
 @implementation SingleInterfaceTableViewController
 
 @synthesize macLabel;
@@ -19,14 +21,6 @@
 @synthesize ipv4NetmaskLabel;
 @synthesize ipv6AddressLabel;
 @synthesize nicInfo;
-
-- (id)initWithStyle:(UITableViewStyle)style {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,16 +33,16 @@
         [ipv4NetmaskLabel setText:info.netmask];
         [ipv4BroadcastLabel setText:info.broadcastIP];
     } else {
-        [ipv4AddressLabel setText:@"none"];
-        [ipv4NetmaskLabel setText:@"none"];
-        [ipv4BroadcastLabel setText:@"none"];
+        [ipv4AddressLabel setText:NO_INFORMATON_STRING];
+        [ipv4NetmaskLabel setText:NO_INFORMATON_STRING];
+        [ipv4BroadcastLabel setText:NO_INFORMATON_STRING];
     }
     
     if([nicInfo.nicIPv6Infos count] != 0) {
         NICIPInfo *info = (NICIPInfo *)[nicInfo.nicIPv6Infos objectAtIndex:0];
         [ipv6AddressLabel setText:info.ip];
     } else {
-        [ipv6AddressLabel setText:@"none"];
+        [ipv6AddressLabel setText:NO_INFORMATON_STRING];
     }
     
     [macLabel setText:[[nicInfo macAddressWithSeparator:@":"] lowercaseString]];
@@ -73,7 +67,7 @@
 
 -(void)tableView:(UITableView*)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender {
     UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
-    NSString *copyText = @"";
+    NSString *copyText = nil;
     
     if(indexPath.section == 0) {
         copyText = [macLabel text];
@@ -85,15 +79,17 @@
         copyText = [ipv6AddressLabel text];
     }
     
-    [pasteBoard setString:copyText];
+    if (copyText) {
+        [pasteBoard setString:copyText];
+    }
 }
 
 -(BOOL)tableView:(UITableView*)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender {
-    if(action != @selector(copy:)) {
+    if(action == @selector(copy:)) {
+        return YES;
+    } else {
         return NO;
     }
-    
-    return YES;
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath {
