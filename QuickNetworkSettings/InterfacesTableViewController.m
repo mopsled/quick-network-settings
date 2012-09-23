@@ -3,7 +3,7 @@
 //  QuickNetworkSettings
 //
 //  Created by Alec Geatches on 5/24/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Alec Geatches. All rights reserved.
 //
 
 #import "InterfacesTableViewController.h"
@@ -25,15 +25,6 @@
 }
 
 @synthesize interfaceTableView;
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
