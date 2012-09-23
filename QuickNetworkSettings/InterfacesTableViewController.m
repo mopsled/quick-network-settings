@@ -66,29 +66,31 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    int sections = 0;
+    
     switch (section) {
         case 0:
-            return [interfaces count];
+            sections = [interfaces count];
         case 1:
-            return 2;
+            sections = 2;
         case 2:
-            return 2;
-        default:
-            return 0;
+            sections = 2;
     }
+    return sections;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *title = @"";
+    
     switch (section) {
         case 0:
-            return @"Interfaces";
+            title = @"Interfaces";
         case 1:
-            return @"Wifi Information";
+            title = @"Wifi Information";
         case 2:
-            return @"Additional Information";
-        default:
-            return nil;
+            title = @"Additional Information";
     }
+    return title;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -144,9 +146,9 @@
         }
     } else if(indexPath.section == 2) {
         if(indexPath.row == 0) {
-            return gatewayCell;
+            cell = gatewayCell;
         } else if(indexPath.row == 1) {
-            return externalIPCell;
+            cell = externalIPCell;
         }
     }
     
@@ -154,77 +156,73 @@
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSIndexPath *selectedPath = nil;
     
     if(indexPath.section == 0) {
-        return indexPath;
+        selectedPath = indexPath;
     }
     
-    return nil;
+    return selectedPath;
 }
 
--(void)tableView:(UITableView*)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender {
+- (void)tableView:(UITableView*)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender {
     UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
+    NSString *copyText = nil;
     
     if(indexPath.section == 0) {
         NICInfo *interface = [interfaces objectAtIndex:indexPath.row];
-        [pasteBoard setString:[interface bestAddress]];
+        copyText = [interface bestAddress];
     } else if(indexPath.section == 1) {
-        switch (indexPath.row) {
-            case 0:
-                [pasteBoard setString:[wifiInfo objectForKey:@"SSID"]];
-                break;
-            case 1:
-                [pasteBoard setString:[wifiInfo objectForKey:@"BSSID"]];
-                break;
-        }
+        NSArray *rowTitles = [NSArray arrayWithObjects:@"SSID", @"BSSID", nil];
+        copyText = [rowTitles objectAtIndex:indexPath.row];
     } else if(indexPath.section == 2) {
-        switch (indexPath.row) {
-            case 0:
-                [pasteBoard setString:[gatewayCell ipAddress]];
-                break;
-            case 1:
-                [pasteBoard setString:[externalIPCell ipAddress]];
-                break;
-        }
+        NSArray *rowAddresses = [NSArray arrayWithObjects:[gatewayCell ipAddress], [externalIPCell ipAddress], nil];
+        copyText = [rowAddresses objectAtIndex:indexPath.row];
+    }
+    
+    if (copyText) {
+        [pasteBoard setString:copyText];
     }
 }
 
--(BOOL)tableView:(UITableView*)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender {
+- (BOOL)tableView:(UITableView*)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender {
     if(action != @selector(copy:)) {
         return NO;
     }
     
-    if(indexPath.section == 0 || indexPath.section == 1) {
-        return YES;
-    } else if(indexPath.section == 2) {
+    BOOL canCopy = YES;
+    
+    if(indexPath.section == 2) {
         if(indexPath.row == 0) {
-            return [gatewayCell hasCopyableInformation];
+            canCopy = [gatewayCell hasCopyableInformation];
         } else if(indexPath.row == 1) {
-            return [externalIPCell hasCopyableInformation];
+            canCopy = [externalIPCell hasCopyableInformation];
         }
     }
     
-    return NO;
+    return canCopy;
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BOOL shouldShowMenu = NO;
+    
     if(indexPath.section == 0) {
-        return YES;
+        shouldShowMenu = YES;
     } else if(indexPath.section == 1) {
         if(indexPath.row == 0) {
-            return ([wifiInfo objectForKey:@"SSID"] != nil);
+            shouldShowMenu = ([wifiInfo objectForKey:@"SSID"] != nil);
         } else if(indexPath.row == 1) {
-            return ([wifiInfo objectForKey:@"BSSID"] != nil);
+            shouldShowMenu = ([wifiInfo objectForKey:@"BSSID"] != nil);
         }
     } else if(indexPath.section == 2) {
         if(indexPath.row == 0) {
-            return [gatewayCell hasCopyableInformation];
+            shouldShowMenu = [gatewayCell hasCopyableInformation];
         } else if(indexPath.row == 1) {
-            return [externalIPCell hasCopyableInformation];
+            shouldShowMenu = [externalIPCell hasCopyableInformation];
         }
     }
     
-    return NO;
+    return shouldShowMenu;
 }
 
 #pragma mark - Application logic
