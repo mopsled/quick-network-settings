@@ -7,9 +7,9 @@ Note: iOS applications are unable to change the network settings displayed in th
 
 ## Complexities
 
-Most of the information in QuickNet can be found in the [System Configuration](http://developer.apple.com/library/ios/documentation/Networking/Reference/SysConfig/_index.html#//apple_ref/doc/uid/TP40001027) framework or built-in unix libraries. However, the gateway information for the current network is not publicly accessible.
+Most of the information in QuickNet can be found in the [System Configuration](http://developer.apple.com/library/ios/documentation/Networking/Reference/SysConfig/_index.html#//apple_ref/doc/uid/TP40001027) framework or built-in unix libraries. However, the gateway information for the current network (obtained through DHCP) is not publicly accessible.
 
-In this application, the application guesses the gateway by using a modified version of [Apple's SimplePing example](https://developer.apple.com/library/mac/#samplecode/SimplePing/Introduction/Intro.html#//apple_ref/doc/uid/DTS10000716-Intro-DontLinkElementID_2) to send a ping with a TTL of 1. Essentially, this acts as a very simple traceroute, and may return the gateway. Given that this hack relies on ICMP to work, the next hop may drop the packet and cause the gateway cell to continue waiting for a response.
+In this application, the application guesses the gateway by using a modified version of [Apple's SimplePing example](https://developer.apple.com/library/mac/#samplecode/SimplePing/Introduction/Intro.html#//apple_ref/doc/uid/DTS10000716-Intro-DontLinkElementID_2) to send a ping with a TTL of 1. Essentially, this acts as a very simple traceroute, and may return the gateway as the first hop. Given that this hack relies on ICMP to work, the first hop may drop the packet and cause the gateway cell to continue waiting for a response.
 
 ## Screenshots
 ![Main Screen](http://mopsled.github.com/quick-network-settings/images/main.png)
