@@ -22,4 +22,4 @@ Non-original code:
 - AFNetworking - [Check out this wonderful networking library on github](https://github.com/AFNetworking/AFNetworking)
 - NICInfo - Code found online. See the `NICInfo.h` for license
 
-Note: The SimplePing library has been changed, and by the previous license does not retain the previous copyright.
+Note: The SimplePing library has been changed, and [by the previous license](https://developer.apple.com/library/mac/samplecode/SimplePing/Listings/SimplePing_h.html#//apple_ref/doc/uid/DTS10000716-SimplePing_h-DontLinkElementID_4) does not retain the previous copyright.
